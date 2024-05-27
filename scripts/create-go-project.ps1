@@ -67,11 +67,17 @@ templ Page () {
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <script src="https://unpkg.com/htmx.org@1.5.0/dist/htmx.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.2/dist/tailwind.min.css" rel="stylesheet" />
     <title>$projectName</title>
 </head>
 <body>
-    <h1>$projectName</h1>
-    <p>Welcome to your new Echo web app!</p>
+    <div class="h-screen w-full flex flex-col items-center justify-center">
+        <h1 class="text-3xl font-bold">$projectName</h1>
+        <p class="text-md">Welcome to your new Echo web app!</p>
+    </div>
 </body>
 </html>
 }
