@@ -51,6 +51,7 @@ func main() {
     
     Page := handlers.GetBase
     e.GET("/", Page)
+    e.POST("/increment", handlers.IncrementCounter)
     // Start the server
     e.Logger.Fatal(e.Start(":4000"))
 }
@@ -77,6 +78,8 @@ templ Page () {
     <div class="h-screen w-full flex flex-col items-center justify-center">
         <h1 class="text-3xl font-bold">$projectName</h1>
         <p class="text-md">Welcome to your new Echo web app!</p>
+        <h1>Counter: <span id="counter">0</span></h1>
+        <button hx-post="/increment" hx-swap="innerHTML" hx-target="#counter">Increment</button>
     </div>
 </body>
 </html>
@@ -158,10 +161,24 @@ package handlers
 import (
 	"github.com/labstack/echo/v4"
 	"github.com/mobiance/$projectName/views/shared"
+    "net/http"
+    "sync"
+    "strconv"
 )
 
 func GetBase(c echo.Context) error {
     return render(c, shared.Page() )
+}
+
+var counter int
+var mutex sync.Mutex
+
+func IncrementCounter(c echo.Context) error {
+    mutex.Lock()
+    counter++
+    newCount := counter
+    mutex.Unlock()
+    return c.String(http.StatusOK, strconv.Itoa(newCount))
 }
 "@
 $handlersPath = Join-Path $handlersDir "handlers.go"
@@ -174,4 +191,5 @@ $readmeContent = @"
 $readmePath = Join-Path $projectRoot "README.md"
 Set-Content -Path $readmePath -Value $readmeContent
 echo "This is the $ProjectName project."
+git init
 air
