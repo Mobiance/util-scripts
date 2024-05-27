@@ -7,7 +7,6 @@ Welcome to the Utility Scripts repository! This collection contains various Powe
 - [Scripts Overview](#scripts-overview)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Getting Started
 
