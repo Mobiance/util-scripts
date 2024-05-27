@@ -33,11 +33,10 @@ Ensure you have PowerShell installed on your machine. PowerShell is available by
 
 This repository contains the following PowerShell scripts:
 
-- **Backup.ps1**: A script to back up specified directories to a chosen location.
-- **Cleanup.ps1**: A script to clean up temporary files and free up disk space.
-- **Sync.ps1**: A script to synchronize files between two directories.
-- **Monitor.ps1**: A script to monitor system resources and log the usage statistics.
-- **Deploy.ps1**: A script to automate the deployment process of a web application.
+- **cheat.ps1**: A script to display cheat sheets for various programming languages and tools.
+- **create-go-projects.ps1**: A script to create a new Go project with a basic directory structure.
+- **imgcat.ps1**: A script to display images in the terminal using ANSI escape codes.
+- **rgf.ps1**: A script to search for files and directories using ripgrep and fzf.
 
 Each script is located in the `scripts` directory and has its own detailed usage instructions and comments explaining the functionality.
 
@@ -49,7 +48,7 @@ To run a script, navigate to the `scripts` directory and execute the script usin
 
 ```powershell
 cd scripts
-.\Backup.ps1
+.\cheat.ps1
 ```
 
 Make sure the script has execute permissions. If not, you can change the execution policy with:
@@ -83,10 +82,6 @@ Contributions are welcome! If you have a script that you think would be a valuab
 6. Open a pull request on GitHub.
 
 Please ensure your scripts are well-documented and include comments explaining the functionality.
-
-## License
-
-This repository is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
 ---
 
